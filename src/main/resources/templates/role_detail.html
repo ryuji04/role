@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ロール詳細画面</title>
+</head>
+<body>
+<h5>ロール詳細画面</h5>
+
+<form th:action="@{/role_edit/detail}" method="post">
+<label>ユーザId:</label>
+<input name="userId" type="text"><br>
+<label>ユーザ名:</label>
+<input name="userName" type="text"><br>
+<label>会社名:</label>
+<input name="companyName" type="text"><br>
+
+<button>検索</button>
+</form>
+
+<h5>検索結果</h5>
+<span th:each="user:${userList}">
+<span th:text="${user.userId}"></span>
+<span th:text="${user.nameKnjSei}"></span>
+<span th:text="${user.nameKnjMei}"></span>
+</span>
+
+
+</body>
+</html>
