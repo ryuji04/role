@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.domain.Company;
+import com.example.domain.Role;
 import com.example.domain.UserForTest;
 import com.example.repository.RoleRepository;
 
@@ -18,15 +19,13 @@ public class RoleService {
 	public RoleRepository roleRepository;
 
 	public List<Company> finadCompanyByCompanyName(String companyName) {
-//TODO 削除
-		System.out.println("companyForServiceの処理:");
 		return roleRepository.findCompanyByCompanyName(companyName);
 	}
 
 	public List<UserForTest> findUserForTestByUserIdOrUserNameOrCompanyName(String userId, String userName,String companyName) {
 		
 		List<Company>companyList=new ArrayList<>();
-		if(!companyName.equals("")&&!companyName.equals(" ")) {
+		if(!companyName.equals("")) {
 			roleRepository.findCompanyByCompanyName(companyName);
 		}
 
@@ -34,5 +33,13 @@ public class RoleService {
 				companyList);
 		return userList;
 
+	}
+	
+	public List<Role>findAllRole(){
+		return roleRepository.findAllRole();
+	}
+	
+	public List<UserForTest>findUserByUserRoleId(String roleId){
+		return roleRepository.findUserByUserRoleId(roleId);
 	}
 }

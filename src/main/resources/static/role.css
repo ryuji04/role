@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+#leftList{
+	height: 100px;
+      width: 100px;
+      overflow: scroll;
+	
+}
+
+#rightList{
+	height: 100px;
+      width: 100px;
+      overflow: scroll;
+}
+
+#left-btn{
+	height:20px;
+}
+
+#right-btn{
+	height:20px;
+}
+
+
+.boxContainer{
+  display: flex;
+}
+

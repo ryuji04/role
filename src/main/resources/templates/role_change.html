@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="../role.css">
 </head>
 <body>
 <html>    
@@ -12,6 +13,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
+    
+    <div class="boxContainer">
         
         <!-- 左のリストボックス -->
         <form th:action="@{/role_edit/test}" method="post">
@@ -20,19 +23,22 @@
             <option value="2" id="2">スイカ</option>
             <option value="3" id="3">バナナ</option>
         </select>
-        <button type="submit">変更</button>
     	</form>
         
         <button type="button" id="left-btn">右へ</button>
         <button type="button" id="right-btn">左へ</button>
         
-        <form th:action="@{/role_edit/change2}" method="post">
+        <form th:action="@{/role_edit/change2}" id="rightListForm" method="post">
         <!-- 右のリストボックス -->
-        <select name="item" id="rightList" size="3" multiple>
+        <select name="select" id="rightList" size="3" multiple>
         </select>
+        <input type="hidden" name="str" id="str">
         <button type="submit">変更</button>
     	</form>
     
+    </div>
+    
+        
     
         <!-- JavaScripts -->
         <script src="http://code.jquery.com/jquery-2.2.3.min.js"></script>
@@ -65,8 +71,28 @@ function rightMove() {
         //選択した要素を、右リストへ追加する。
         $("#rightList").append('<option value = ' + value + ' id = ' + value + '>' + element + '</option>');
         
+      //inputタグにvalueを入れる
+        let str=document.getElementById('str');
+        console.log(str);
+        let o=document.forms['rightListForm'].elements['select'].options;
+        
+        let v = new Array();
+        let t = new Array();
+        
+        for(var i = 0; i < o.length; i++) {
+        	v[i] = o[i].value;
+        	t[i] = o[i].value;
+        	console.log(str);
+        	}
+        	str.value=v;
+      
+        
         //選択状態を開放する。
         $("#rightList").removeAttr("option:selected");
+        
+        
+
+        
     }
 }
  

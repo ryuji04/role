@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="#" id="test" th:action="@{/test}">
+<select name="testsel">
+<option value="item1">Item1</option>
+<option value="item2">Item2</option>
+<option value="item3">Item3</option>
+<option value="item4">Item4</option>
+<option value="item5">Item5</option>
+</select>
+
+<input type="hidden" name="item" id="item">
+<button>送信</button>
+</form>
+
+<script type="text/javascript">
+
+let item=document.getElementById('item');
+console.log(item);
+
+var o = document.forms['test'].elements['testsel'].options;
+
+var v = new Array();
+var t = new Array();
+
+for(var i = 0; i < o.length; i++) {
+v[i] = o[i].value;
+t[i] = o[i].value;
+console.log(item);
+}
+item.value=v;
+
+alert(v);
+alert(t);
+</script>
+</body>
+</html>

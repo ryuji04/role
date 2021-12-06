@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ロール一覧</title>
+</head>
+<body>
+ロール一覧
+
+<table>
+<tr>
+<th>roleId</th>
+<th>roleDescription</th>
+</tr>
+
+<tr th:each="role:${roleList}">
+<td><a th:href="@{/role_edit/showDetail(roleId=${role.roleId})}" th:text="${role.roleId}"></a></td>
+<td><a th:href="@{/role_edit/showDetail(roleId=${role.roleId})}" th:text="${role.roleDescription}"></a></td>
+<td></td>
+</tr>
+
+</table>
+</body>
+</html>
